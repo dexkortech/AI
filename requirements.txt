@@ -2,3 +2,5 @@ boto3
 unittest2
 python-dotenv
 redis
+flask 
+flask-socketio

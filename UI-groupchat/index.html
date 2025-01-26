@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Chat Interface</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Chat Application</h1>
+        
+        <div class="messages-container">
+            <ul id="message-list">
+                <!-- Messages will be dynamically inserted here -->
+            </ul>
+        </div>
+        
+        <div class="message-form">
+            <input type="text" id="user" placeholder="Your Name" required>
+            <textarea id="message-text" placeholder="Type your message..." required></textarea>
+            <button id="send-message-btn">Send Message</button>
+        </div>
+        
+        <div class="clear-history">
+            <button id="clear-history-btn">Clear Chat History</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
