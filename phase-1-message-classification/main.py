@@ -44,9 +44,6 @@ if __name__ == "__main__":
     "Definition: AI (Artificial Intelligence)",
     "Can you explain?",
     "AI chatbot."
-
-    # Test messages
-    ""
 ]
 
 
