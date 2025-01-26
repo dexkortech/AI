@@ -1,14 +1,21 @@
 import sys
 import os
-from flask import Flask, request, jsonify
-import phase1_message_classification as phase1
-# from phase1_message_classification
 
+# Add the parent directory to the sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from flask import Flask, request, jsonify, send_from_directory
+from phase1_message_classification.classifier import hybrid_classification
+from phase1_message_classification.redis_storage import RedisStorage
 import datetime
 import uuid
 
 app = Flask(__name__)
-storage = phase1.classifier.hybrid_classification()
+storage = RedisStorage()
+
+@app.route('/')
+def index():
+    return send_from_directory('static', 'index.html')
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
