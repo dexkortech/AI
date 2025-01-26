@@ -1,7 +1,7 @@
 import re
 from config import bedrock_client
 from botocore.exceptions import ClientError
-from utils.preprocess import clean_text
+from phase1_message_classification.preprocess import clean_text
 import json
 from dotenv import load_dotenv
 import os

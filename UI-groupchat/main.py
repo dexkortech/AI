@@ -1,12 +1,14 @@
+import sys
+import os
 from flask import Flask, request, jsonify
-from phase_1_message_classification.redis_storage import RedisStorage
-from phase_1_message_classification.classify_message import classify_message
+import phase1_message_classification as phase1
+# from phase1_message_classification
 
 import datetime
 import uuid
 
 app = Flask(__name__)
-storage = RedisStorage()
+storage = phase1.classifier.hybrid_classification()
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
@@ -19,7 +21,7 @@ def send_message():
         return jsonify({"error": "User and text are required"}), 400
     
     # Classify if AI response is needed
-    ai_response_needed = classify_message(text)
+    ai_response_needed = hybrid_classification(text)
     
     message = {
         "id": str(uuid.uuid4()),
@@ -44,7 +46,7 @@ def classify():
     if not text:
         return jsonify({"error": "Text is required"}), 400
     
-    ai_response_needed = classify_message(text)
+    ai_response_needed = hybrid_classification(text)
     return jsonify({"ai_response_needed": ai_response_needed})
 
 @app.route('/clear', methods=['DELETE'])
